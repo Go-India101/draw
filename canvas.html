@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" href="scribble.svg" type="image/icon">
+  <meta property="og:image" content="scribble.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <script src="https://use.fontawesome.com/89a7a37f99.js"></script>
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>
+        SCRIBBLE
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type="text/css">
+        .context-menu {
+            position: absolute;
+            text-align: center;
+            background: #00bfff;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+  
+        .context-menu ul {
+            padding: 0px;
+            margin: 0px;
+            min-width: 150px;
+            list-style: none;
+            border-radius: 10px;
+        }
+  
+        .context-menu ul li {
+            padding-bottom: 7px;
+            padding-top: 7px;
+            border: 1px solid black;
+            color: white;
+            font-family: 'Raleway', sans-serif;
+            font-weight: bold;
+        }  
+        .context-menu ul .top {
+            border-top-right-radius:  10px;
+            border-top-left-radius:  10px;
+        }
+        .context-menu ul .down {
+            border-bottom-right-radius:  10px;
+            border-bottom-left-radius:  10px;
+        }
+  
+        .context-menu ul li:hover {
+            background: #00a8ff;
+          }
+            
+    html { overflow-y: hidden; }
+        html { overflow-x: hidden; }
+        html{
+          background-color: black;
+        }
+        .draw{
+          left: 0px;
+          top: 0px;
+            cursor: url(cursor.png) 10 10, auto;
+            z-index: -9999999;
+            background-color: white;
+            position: absolute;
+        }
+        .co1{
+          top: 0px;
+          width: 100%;
+          text-align: center;
+          position: absolute;
+        }
+        .co2{
+          left: 0px;
+          height: 100%;
+          margin-top: 100px;
+          position: absolute;
+        }
+        .co3{
+          right: 0px;
+          height: 100%;
+          margin-top: 100px;
+          position: absolute;
+        }
+        .color{
+          cursor: pointer;
+            outline: none;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: none;
+            color: white;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            border-left: none;
+        }
+        .color::-webkit-color-swatch {
+          width: 50px;
+          height: 50px;
+           border: none;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            border-left: none;
+           padding: 0;
+        }
+        .color::-webkit-color-swatch-wrapper {
+          width: 50px;
+          height: 50px;
+          border: none;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            border-left: none;
+          padding: 0;
+          left: 0px;
+        }
+        .color::-moz-color-swatch {
+          width: 50px;
+          height: 50px;
+           border: none;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            border-left: none;
+           padding: 0;
+        }
+        .color::-moz-color-swatch-wrapper {
+          width: 50px;
+          height: 50px;
+          border: none;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            border-left: none;
+          padding: 0;
+          left: 0px;
+        }
+
+        .brushes{
+          width: 30px;
+          height: 30px;
+          padding-right: 10px;
+          padding-top: 5px;
+        }
+        .save{
+          width: 30px;
+          height: 30px;
+          padding-left: 5px;
+          padding-top: 5px;
+        }
+
+        button{
+            width: 50px;
+            height: 50px;
+            border: 5px solid;
+            background-color: #00bfff;
+            font-weight: bold;
+            font-family: 'Raleway', sans-serif;
+            color: black;
+            font-size: 15pt;
+            outline: none;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+        .clean:hover{
+            background-color: white;
+            border-color: #00bfff;
+        }
+
+
+.size{
+  -webkit-appearance: none;
+  width: 50%;
+  border-radius: 10px;
+  background: white;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border: 4px solid black;
+}
+
+.size:hover {
+  opacity: 1;
+}
+
+.size::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #00bfff;
+  cursor: pointer;
+}
+
+.size::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #00bfff;
+  cursor: pointer;
+}
+.disable-select{
+   -ms-user-select:none;
+}
+.disable-select{
+  -webkit-touch-callout:none;
+}
+.disable-select{
+  -webkit-user-select:none;
+}
+.disable-select{
+   -moz-user-select:none;
+}
+.disable-select{
+  user-select:none;
+}
+
+         </style>
+</head>
+<body onload="change1();">
+    <div class="disable-select">
+    <div class="co1">
+<input title="SIZE" class="size" value="20" type="range" id="size" ></input>
+</div>
+<div class="co2">
+  <input title="COLOR" class="color" type="color" value="#00000" id="hex" placeholder="enter hex color"></input><br><br>
+<input type="hidden"  value="round" class="pens" id="inputtype" name="pens">
+ <button title="BRUSH" id="brush1" value="round" onclick="change1();" style="border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-left: none; "><img src="brush.svg" class="brushes"></button><br><br>
+    <button title="CRAYON"  id="brush2" value="butt" onclick="change2();" style="border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-left: none; "><img src="crayon.svg" class="brushes"></button><br><br>
+    <button title="PEN"  id="brush3" value="square" onclick="change3();" style="border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-left: none; "><img src="pen.svg" class="brushes"></button>
+
+</div>
+
+    <div class="co3">
+      <button title="Eraser" id="eraser" onclick="change4() ;" style="border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-right: none;"><img src="eraser.svg" class="save"></button><br><br>
+<button title="CLEAR" class="clean" onClick="clean();" style="border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-right: none; "><img src="clear.svg" class="save"></button><br><br>
+<a id="download" style="outline: none;" download="SCRIBBLE.jpg" onclick="download_img(this);"><button class="clean" title="SAVE"  style="border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-right: none; "><img src="save.svg" class="save"></button></a>
+</div>
+<canvas class="draw" id="draw" ></canvas>
+</div>
+ 
+    <div id="contextMenu" class="context-menu" 
+        style="display:none">
+        <ul>
+            <li class="top" onclick="change1();">BRUSH</li>
+            <li onclick="change2();">CRAYON</li>
+            <li onclick="change3();">PEN</li>
+            <li onclick="change4();">ERASER</li>
+            <li class="down" onclick="clean();">CLEAR</li>
+        </ul>
+    </div>
+<script src="app.js"></script>
+
+        <script type="text/javascript">
+  if (screen.width <= 699) {
+    document.location = "mobile.html";
+  }
+</script>
+
+
+</body>
+</html>
