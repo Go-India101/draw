@@ -20,8 +20,15 @@
 <meta name="author" content="Ganik Parashar">
 
       <style>
+        html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative
+}
+
         body::-webkit-scrollbar {
-width: 30px;
+width: 20px;
 }
 body {
 scrollbar-width: thin;
@@ -33,7 +40,7 @@ border-radius: 5px;
 }
 body::-webkit-scrollbar-thumb {
 background-color: #ffffff;
-border-radius:10px;
+border-radius:50px 0px 0px 50px;
 
 }
 ::-moz-selection { /* Code for Firefox */
@@ -72,9 +79,8 @@ border-radius:10px;
             cursor: pointer;
         }
         .screenshots{
-            width: 50%;
-            border: 10px solid #00bfff;
-            border-radius: 30px;
+            width: 40%;
+            border-radius: 10px;
 
         }
         .logo{
@@ -97,18 +103,42 @@ border-radius:10px;
             font-family: 'Raleway', sans-serif;
             font-size: 30pt;
           }
-          h4{
-            font-family: 'Raleway', sans-serif;
-            font-size: 30pt;
+          .co1{
           }
-          h5{
-            font-family: 'Raleway', sans-serif;
-            font-size: 30pt;
-          }
-          h6{
-            font-family: 'Raleway', sans-serif;
-            font-size: 30pt;
-          }
+
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 0.75s ease;
+}
+
+.reveal.active{
+  transform: translateY(0px);
+  opacity: 1;
+}
+.revealleft{
+  position: relative;
+  transform: translateX(150px);
+  opacity: 0;
+  transition: all 0.75s ease;
+}
+
+.revealleft.active{
+  transform: translateX(0px);
+  opacity: 1;
+}
+.revealright{
+  position: relative;
+  transform: translateX(-150px);
+  opacity: 0;
+  transition: all 0.75s ease;
+}
+
+.revealright.active{
+  transform: translateX(0px);
+  opacity: 1;
+}
       </style>
       </head>
     <body>
@@ -116,21 +146,81 @@ border-radius:10px;
         <h1>SCRIBBLE - DRAW WHICH YOU WANT</h1><br>
         <img class="logo" src="scribble.png"><br><br><br>
         <a href="canvas.html" target="_blank"><button>DRAW !</button></a><br><br><br><br>
-        <h2>DOWNLOAD SCRIBBLE</h2>
+        <div class="container reveal"><h2>DOWNLOAD SCRIBBLE</h2>
+        <h2 style="font-size: 20pt;">INSTALLATION:</h2>
         <font class="installation">It Is The First Release Of Scribble. "scribble.zip" Contains Html Files , Extract It , Double-click On "canvas.html" And It Will Be Opened In Your Browser And Works Offline! , It Makes to Work Scribble In WINDOWS , LINUX , OSX In Less Memory And Works Light! . <br><br>"DEB" And "RPM" Packages Are For Linux Devices ,"DEB" For Ubuntu And Debian Based Distros , "RPM" For Fedora And OpenSuse Based Distros. Thanks For Downloading , Enjoy!</font>
-        <a href="https://github.com/Go-India101/scribble/releases/tag/scribble" target="_blank"><br><br><button>DOWNLOAD !</button></a><br><br><br><br>
-        <h2>AN OPEN SOURCE PAINT SOFTWARE DESINGED FOR KIDS<br>SUPPORT AS MUCH YOU CAN</h2><br>
-        <img class="screenshots" src="1.png"><br>
-        <a href="https://github.com/Go-India101/scribble" target="_blank"><button>GITHUB</button></a><br><br>
-        <h3>THREE TYPES OF BRUSHES<br>BRUSH | CRAYON | PEN</h3><br>
-        <img class="screenshots" src="2.png"><br><br>
-        <h4>ANY SIZE WHICH YOU WANT<br>CUSTOMIZE YOURSELF</h4><br>
-        <img class="screenshots" src="3.png"><br><br>
-        <h5>ANY COLOR<br>WHICH YOU WANT</h5><br>
-        <img class="screenshots" src="4.png"><br><br>
-        <h6>SCRIBBLE AND BE STRESS FREE<br>DRAW ANYTHING</h6><br>
-        <img class="screenshots" src="5.png"><br><br>
+        <a href="https://github.com/Go-India101/scribble/releases/tag/scribble" target="_blank"><br><br><button>DOWNLOAD !</button></a></div><br><br><br><br>
+        <div class="container revealleft"><h3>AN OPEN SOURCE PAINT SOFTWARE DESINGED FOR KIDS<br>SUPPORT AS MUCH YOU CAN</h2><br>
+        <img src="laptop.svg" style="width: 50%;"><br><img class="screenshots" src="1.png" style="margin-top: -29.50%;" ><br>
+        <a href="https://github.com/Go-India101/scribble" target="_blank"><button>GITHUB</button></a></div><br><br>
+        <div class="container revealright"><h3>THREE TYPES OF BRUSHES<br>BRUSH | CRAYON | PEN</h3><br>
+        <img src="laptop.svg" style="width: 50%;"><br><img class="screenshots" src="2.png" style="margin-top: -29.50%;" ></div><br><br>
+        <div class="container revealleft"><h3>ANY SIZE WHICH YOU WANT<br>CUSTOMIZE YOURSELF</h4><br>
+        <img src="laptop.svg" style="width: 50%;"><br><img class="screenshots" src="3.png" style="margin-top: -29.50%;" ></div><br><br>
+        <div class="container revealright"><h3>ANY COLOR<br>BRING OUT YOUR CREATIVITY</h5><br>
+        <img src="laptop.svg" style="width: 50%;"><br><img class="screenshots" src="4.png" style="margin-top: -29.50%;" ></div><br><br>
+        <div class="container revealleft"><h3>SCRIBBLE AND BE STRESS FREE<br>DRAW ANYTHING</h6><br>
+        <img src="laptop.svg" style="width: 50%;"><br><img class="screenshots" src="5.png" style="margin-top: -29.50%;" ></div><br><br>
         <a target="_blank" href="https://go-india101.github.io/home/" style="text-decoration: none; color: white;"><font size=5 style="font-family: 'Raleway', sans-serif;">&copy;Go India</font></a>
     </center>
+    <script type="text/javascript">
+    window.addEventListener('scroll', reveal);
+
+    function reveal(){
+      var reveals = document.querySelectorAll('.reveal');
+
+      for(var i = 0; i < reveals.length; i++){
+
+        var windowheight = window.innerHeight;
+        var revealtop = reveals[i].getBoundingClientRect().top;
+        var revealpoint = 150;
+
+        if(revealtop < windowheight - revealpoint){
+          reveals[i].classList.add('active');
+        }
+        else{
+          reveals[i].classList.remove('active');
+        }
+      }
+    }
+    window.addEventListener('scroll', revealleft);
+
+    function revealleft(){
+      var reveals = document.querySelectorAll('.revealleft');
+
+      for(var i = 0; i < reveals.length; i++){
+
+        var windowheight = window.innerHeight;
+        var revealtop = reveals[i].getBoundingClientRect().top;
+        var revealpoint = 150;
+
+        if(revealtop < windowheight - revealpoint){
+          reveals[i].classList.add('active');
+        }
+        else{
+          reveals[i].classList.remove('active');
+        }
+      }
+    }
+    window.addEventListener('scroll', revealright);
+
+    function revealright(){
+      var reveals = document.querySelectorAll('.revealright');
+
+      for(var i = 0; i < reveals.length; i++){
+
+        var windowheight = window.innerHeight;
+        var revealtop = reveals[i].getBoundingClientRect().top;
+        var revealpoint = 150;
+
+        if(revealtop < windowheight - revealpoint){
+          reveals[i].classList.add('active');
+        }
+        else{
+          reveals[i].classList.remove('active');
+        }
+      }
+    }
+    </script>
     </body>
 </html>
