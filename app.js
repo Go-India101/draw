@@ -43,7 +43,7 @@ function draw(e) {
   ctx.stroke(); // draw it!
 }
 download_img = function(el) {
-  var image = canvas.toDataURL("SCRIBBLE/jpg");
+  var image = canvas.toDataURL("SCRIBBLE/png");
   el.href = image;
 };
 

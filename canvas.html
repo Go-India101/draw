@@ -60,7 +60,7 @@
         .draw{
           left: 0px;
           top: 0px;
-            cursor: url(cursor.png) 10 10, auto;
+            cursor: url(cursor.png) 15 15, auto;
             z-index: -9999999;
             background-color: white;
             position: absolute;
@@ -70,18 +70,21 @@
           width: 100%;
           text-align: center;
           position: absolute;
+            cursor: url(cursor.png) 15 15, auto;
         }
         .co2{
           left: 0px;
           height: 100%;
           margin-top: 100px;
           position: absolute;
+            cursor: url(cursor.png) 15 15, auto;
         }
         .co3{
           right: 0px;
           height: 100%;
           margin-top: 100px;
           position: absolute;
+            cursor: url(cursor.png) 15 15, auto;
         }
         .color{
           cursor: pointer;
@@ -234,7 +237,7 @@
     <div class="co3">
       <button title="Eraser" id="eraser" onclick="change4() ;" style="border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-right: none;"><img src="eraser.svg" class="save"></button><br><br>
 <button title="CLEAR" class="clean" onClick="clean();" style="border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-right: none; "><img src="clear.svg" class="save"></button><br><br>
-<a id="download" style="outline: none;" download="SCRIBBLE.jpg" onclick="download_img(this);"><button class="clean" title="SAVE"  style="border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-right: none; "><img src="save.svg" class="save"></button></a>
+<a id="download" style="outline: none;" download="SCRIBBLE.png" onclick="download_img(this);"><button class="clean" title="SAVE"  style="border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-right: none; "><img src="save.svg" class="save"></button></a>
 </div>
 <canvas class="draw" id="draw" ></canvas>
 </div>
@@ -256,6 +259,7 @@
     document.location = "mobile.html";
   }
 </script>
+
 
 
 </body>
